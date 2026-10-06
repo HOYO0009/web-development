@@ -50,7 +50,7 @@
           <section class="panel" aria-labelledby="all-bookings-title"><h2 id="all-bookings-title">All bookings</h2><div id="admin-bookings" class="booking-list"></div></section>
           <section class="stack">
             <section class="panel" aria-labelledby="seats-title"><h2 id="seats-title">Seats</h2><p class="resource-note">Seats and time slots can only be deleted when no booking refers to them.</p><ul id="seat-list" class="resource-list"></ul><form id="seat-form" class="inline-form"><label>Seat number<input id="new-seat" type="number" min="1" required /></label><button type="submit">Add seat</button></form></section>
-            <section class="panel" aria-labelledby="slots-title"><h2 id="slots-title">Time slots</h2><ul id="slot-list" class="resource-list"></ul><form id="slot-form" class="inline-form"><label>Start<input id="start-time" type="time" required /></label><label>End<input id="end-time" type="time" required /></label><button type="submit">Add slot</button></form></section>
+            <section class="panel" aria-labelledby="slots-title"><h2 id="slots-title">Time slots</h2><ul id="slot-list" class="resource-list"></ul><form id="slot-form" class="inline-form"><label>Start (24-hour)<input id="start-time" type="text" placeholder="HH:MM" pattern="([01][0-9]|2[0-3]):[0-5][0-9]" maxlength="5" title="Use 24-hour time, such as 14:30." required /></label><label>End (24-hour)<input id="end-time" type="text" placeholder="HH:MM" pattern="([01][0-9]|2[0-3]):[0-5][0-9]" maxlength="5" title="Use 24-hour time, such as 14:30." required /></label><button type="submit">Add slot</button></form></section>
           </section>
         </section>
       </section>
