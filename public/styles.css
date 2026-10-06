@@ -1,0 +1,75 @@
+:root {
+  --paper: #f7f4ed;
+  --surface: #fffdf8;
+  --ink: #202823;
+  --muted: #697169;
+  --line: #d8d4c9;
+  --teal: #086d67;
+  --teal-dark: #045650;
+  --danger: #a12e24;
+  --focus: #d27b22;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+dialog {
+  max-width: min(26rem, calc(100vw - 2rem));
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: .7rem;
+  background: var(--surface);
+  color: var(--ink);
+}
+dialog::backdrop { background: #20282366; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.page-shell { max-width: 1120px; margin: auto; padding: clamp(1.25rem, 4vw, 3.5rem) 1.25rem; }
+h1, h2, p { margin-top: 0; }
+h1 { font-size: clamp(2rem, 5vw, 3.3rem); line-height: 1.05; }
+h2 { font-size: 1.25rem; }
+.eyebrow { margin-bottom: .35rem; color: var(--teal); font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.auth-panel, .panel { background: var(--surface); border: 1px solid var(--line); border-radius: .7rem; padding: clamp(1.25rem, 3vw, 2rem); box-shadow: 0 1px 2px #2028230b; }
+.auth-panel { max-width: 32rem; margin: 10vh auto; }
+.stack { display: grid; gap: 1rem; }
+label { display: grid; gap: .35rem; font-weight: 600; }
+.checkbox { display: flex; align-items: center; gap: .55rem; font-weight: 500; }
+.checkbox input { width: auto; }
+input, select, button { font: inherit; }
+input, select { width: 100%; padding: .62rem .7rem; border: 1px solid #aaa99f; border-radius: .35rem; background: #fff; }
+button { cursor: pointer; border: 1px solid var(--teal); border-radius: .35rem; background: var(--teal); color: #fff; padding: .58rem .85rem; font-weight: 700; }
+button:hover { background: var(--teal-dark); }
+button:disabled { cursor: not-allowed; opacity: .55; }
+.quiet { background: transparent; color: var(--teal); }
+.quiet:hover { background: #e4f0ed; }
+.demo-hint { margin: 1.4rem 0 0; color: var(--muted); font-size: .9rem; }
+.resource-note { color: var(--muted); font-size: .9rem; }
+code { color: var(--ink); }
+.app-header { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; margin-bottom: 1.75rem; }
+.app-header h1 { margin-bottom: 0; font-size: 2rem; }
+.account { display: flex; align-items: center; gap: .75rem; }
+.status { min-height: 1.5rem; margin-bottom: 1rem; color: var(--teal); font-weight: 600; }
+.status.error { color: var(--danger); }
+.two-column { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; }
+.form-actions, .booking-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+fieldset { margin: 0; padding: 0; border: 0; }
+legend { margin-bottom: .45rem; font-weight: 700; }
+.seat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(3rem, 1fr)); gap: .5rem; }
+.seat { min-height: 2.8rem; padding: .35rem; border-color: #8aa9a4; background: #eff6f3; color: var(--ink); }
+.seat:hover { background: #d9ebe6; }
+.seat[aria-pressed="true"] { outline: 3px solid var(--teal); outline-offset: 1px; background: var(--teal); color: #fff; }
+.seat.taken { background: #eeeae1; border-color: #cdc6ba; color: #746f66; text-decoration: line-through; }
+.booking-list, .resource-list { display: grid; gap: .7rem; margin: 0; padding: 0; list-style: none; }
+.booking-card, .resource-list li { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .8rem; border: 1px solid var(--line); border-radius: .4rem; }
+.booking-card p { margin: 0; }
+.booking-card small, .empty { color: var(--muted); }
+.empty { font-style: italic; }
+.booking-actions { gap: .45rem; }
+.booking-actions button, .resource-list button { padding: .35rem .55rem; font-size: .88rem; }
+.delete { border-color: var(--danger); background: var(--danger); }
+.inline-form { display: grid; grid-template-columns: 1fr auto; gap: .65rem; align-items: end; margin-top: 1rem; }
+.inline-form:has(label + label) { grid-template-columns: 1fr 1fr auto; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+@media (max-width: 720px) {
+  .two-column { grid-template-columns: 1fr; }
+  .app-header, .account, .booking-card, .resource-list li { align-items: flex-start; flex-direction: column; }
+  .inline-form, .inline-form:has(label + label) { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "library-seat-booking",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A minimal library study seat booking course project.",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

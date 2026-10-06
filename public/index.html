@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library seats</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section id="login-view" class="auth-panel" aria-labelledby="login-title">
+        <p class="eyebrow">Library study spaces</p>
+        <h1 id="login-title">Reserve a seat</h1>
+        <p>Choose a quiet place for your next study session.</p>
+        <form id="login-form" class="stack" novalidate>
+          <label>Username<input id="username" name="username" autocomplete="username" required /></label>
+          <label>Password<input id="password" name="password" type="password" autocomplete="current-password" required /></label>
+          <button type="submit">Sign in</button>
+        </form>
+        <p id="login-status" class="status" role="status" aria-live="polite"></p>
+        <p class="demo-hint">Demo accounts: <code>student1</code>, <code>student2</code>, or <code>admin</code><br />Password: <code>Library123!</code></p>
+      </section>
+
+      <section id="app-view" hidden>
+        <header class="app-header">
+          <div><p class="eyebrow">Library study spaces</p><h1>Seat bookings</h1></div>
+          <div class="account"><span id="welcome"></span><button id="logout-button" class="quiet" type="button">Sign out</button></div>
+        </header>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+
+        <section id="student-view" hidden>
+          <div class="two-column">
+            <section class="panel" aria-labelledby="booking-title">
+              <h2 id="booking-title">Book a seat</h2>
+              <form id="booking-form" class="stack" novalidate>
+                <label>Date<input id="booking-date" name="date" type="date" required /></label>
+                <label>Time slot<select id="time-slot" name="timeSlotId" required></select></label>
+                <label class="checkbox"><input id="available-only" type="checkbox" checked /> Show available seats only</label>
+                <fieldset><legend>Seat</legend><div id="seat-grid" class="seat-grid" aria-live="polite"></div></fieldset>
+                <div class="form-actions"><button id="save-booking" type="submit">Create booking</button><button id="cancel-edit" class="quiet" type="button" hidden>Cancel edit</button></div>
+              </form>
+            </section>
+            <section class="panel" aria-labelledby="your-bookings-title">
+              <h2 id="your-bookings-title">Your bookings</h2><div id="student-bookings" class="booking-list"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="admin-view" hidden class="two-column">
+          <section class="panel" aria-labelledby="all-bookings-title"><h2 id="all-bookings-title">All bookings</h2><div id="admin-bookings" class="booking-list"></div></section>
+          <section class="stack">
+            <section class="panel" aria-labelledby="seats-title"><h2 id="seats-title">Seats</h2><p class="resource-note">Seats and time slots can only be deleted when no booking refers to them.</p><ul id="seat-list" class="resource-list"></ul><form id="seat-form" class="inline-form"><label>Seat number<input id="new-seat" type="number" min="1" required /></label><button type="submit">Add seat</button></form></section>
+            <section class="panel" aria-labelledby="slots-title"><h2 id="slots-title">Time slots</h2><ul id="slot-list" class="resource-list"></ul><form id="slot-form" class="inline-form"><label>Start<input id="start-time" type="time" required /></label><label>End<input id="end-time" type="time" required /></label><button type="submit">Add slot</button></form></section>
+          </section>
+        </section>
+      </section>
+    </main>
+    <dialog id="confirm-dialog" aria-labelledby="confirm-title">
+      <form method="dialog">
+        <h2 id="confirm-title">Confirm action</h2>
+        <p id="confirm-message"></p>
+        <div class="form-actions">
+          <button class="quiet" value="cancel" autofocus>Keep it</button>
+          <button class="delete" value="confirm">Confirm</button>
+        </div>
+      </form>
+    </dialog>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
